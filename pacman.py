@@ -148,16 +148,15 @@ def move():
         goto(point.x + 10, point.y + 10)
         dot(20, 'red')
 
+        if (pacman.x+10 == point.x +10)or (pacman.y+10 == point.y+10):
+            dot(20,'magenta')
+            point.move(course*3)
+
     update()
 
     for point, course in ghosts:
         if abs(pacman - point) < 20:
             return
-
-    if (pacman.x  +10 == point.x+ 10)  or (pacman.y + 10  == point.y + 10) :
-        point.move(course*3)
-        dot(20,'magenta')
-   
     ontimer(move, 100)
 
 def change(x, y):
